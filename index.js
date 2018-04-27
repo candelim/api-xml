@@ -24,9 +24,18 @@ router.route('/getFile').get(function (req, response) {
             parser.parseString(data, function (err, result) {
                 var file = result.route;
 
-                response.download(file); // Set disposition and send it.
+                fs.readFile( file, function(err, data) {
+					if(err)
+					{
+						response.send('No hay archivo o puede que su configuracion sea erronea');
+					}
+					else {
+						var text = data.toString();
 
-            });
+						response.send(text); // Set disposition and send it.
+					}
+				});
+			});
         }
     });
 
