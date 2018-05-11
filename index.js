@@ -3,44 +3,67 @@ var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
 
-var fs = require('fs'),
-    xml2js = require('xml2js');
-
+var fs = require('fs');
+var zlib = require('zlib')
 
 router.use(bodyParser.json());
 /* GET users listing. */
 
 router.route('/getFile').get(function (req, response) {
-
-    var dataXml = process.env.CONFIGXML;
-
-    var parser = new xml2js.Parser();
-    fs.readFile( dataXml, function(err, data) {
+    console.log(process.cmd());
+    console.log(__dirname):
+    console.log(process.env.CONFIGXML):
+    fs.readFile( process.env.CONFIGXML, function(err, data) {
         if(err)
         {
             response.send('No hay archivo o puede que su configuracion sea erronea');
         }
         else {
-            parser.parseString(data, function (err, result) {
-                var file = result.route;
+                var text = data.toString();
 
-                fs.readFile( file, function(err, data) {
-					if(err)
-					{
-						response.send('No hay archivo o puede que su configuracion sea erronea');
-					}
-					else {
-						var text = data.toString();
+                response.send(text);
 
-						response.send(text); // Set disposition and send it.
-					}
-				});
-			});
+        }
+    });
+    //CONFIGXML='./genericQueryXMLall.xml' FILECUTOVERAVANCE='./cutover_fan_avance.csv' FILECUTOVERSTATUS='./cutover_fan_status.csv'
+
+});
+
+router.route('/getFileCutoverAvance').get(function (req, response) {
+
+    fs.readFile( process.env.FILECUTOVERAVANCE, function(err, data) {
+        if(err)
+        {
+            response.send('No hay archivo o puede que su configuracion sea erronea');
+        }
+        else {
+            var text = data.toString();
+
+            response.send(text);
+
         }
     });
 
 
+});
 
+
+router.route('/getFileCutoverStatus').get(function (req, response) {
+
+    //response.chunkedEncoding = true
+
+    fs.readFile( process.env.FILECUTOVERSTATUS, function(err, data) {
+        if(err)
+        {
+            response.send('No hay archivo o puede que su configuracion sea erronea');
+        }
+        else {
+            var text = data.toString();
+
+            response.send(text);
+
+        }
+    });
 
 
 });
