@@ -10,13 +10,12 @@ router.use(bodyParser.json());
 /* GET users listing. */
 
 router.route('/getFile').get(function (req, response) {
-    console.log(process.cwd());
-    console.log(__dirname);
-    console.log(process.env.CONFIGXML);
-    fs.readFile( process.env.CONFIGXML, function(err, data) {
+    console.log(__dirname + '/' + process.env.CONFIGXML);
+
+    fs.readFile( __dirname + '/' + process.env.CONFIGXML, function(err, data) {
         if(err)
         {
-            response.send('No hay archivo o puede que su configuracion sea erronea');
+            response.send('No hay archivo o puede que su configuracion sea erronea :' + err);
         }
         else {
                 var text = data.toString();
