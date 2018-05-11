@@ -11,8 +11,8 @@ router.use(bodyParser.json());
 
 router.route('/getFile').get(function (req, response) {
     console.log(process.cmd());
-    console.log(__dirname):
-    console.log(process.env.CONFIGXML):
+    console.log(__dirname);
+    console.log(process.env.CONFIGXML);
     fs.readFile( process.env.CONFIGXML, function(err, data) {
         if(err)
         {
