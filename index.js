@@ -10,7 +10,7 @@ router.use(bodyParser.json());
 /* GET users listing. */
 
 router.route('/getFile').get(function (req, response) {
-    console.log(process.cmd());
+    console.log(process.cwd());
     console.log(__dirname);
     console.log(process.env.CONFIGXML);
     fs.readFile( process.env.CONFIGXML, function(err, data) {
