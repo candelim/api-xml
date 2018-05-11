@@ -1,0 +1,9 @@
+APLICATIVOS;FEI;DIA;CARACTERISTICA;TIPO;WAVE;EDO;ESTADO
+Validador de Mail Telecom;15/03/2018;jue;Legado;Integracion;W1;1;En planificacion
+Validador de Mail Cablevision;15/03/2018;jue;Legado;Integracion;W1;2;Planificada
+Qlikview Corporativo / R5;15/03/2018;jue;Anillo 2;Integracion;W1;3;Pendiente de inicio
+Qlikview Corporativo / R7;15/03/2018;jue;Anillo 2;Integracion;W1;4;En curso (en progreso)
+BSCS BLACKLIST DNI + Numeracion Movil;07/04/2018;sab;Legado;Integracion;W1;5;En curso (demorado)
+BSCS WHITELIST DNI + Numeracion Movil;07/04/2018;sab;Legado;Integracion;W1;6;En curso (en riesgo)
+BSCS (Servidor de Lineas);03/03/2018;sab;Legado;Integracion;W1;7;Cumplido en termino
+BSCS (Numeracion Movil);03/03/2018;sab;Legado;Integracion;W1;8;Cumplido fuera de termino
